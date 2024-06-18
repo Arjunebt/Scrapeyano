@@ -1,0 +1,156 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+
+    <title>Scrapeyano</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        body {
+            background-color: #f5f5f5;
+        }
+
+        h2 {
+            padding: 30px 100px;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            text-align-last: left;
+            color: #333;
+            font-size: 2rem;
+        }
+
+        .wrapper {
+            min-height: 100vh;
+            width: 100%;
+            background-color: #62c7a5;
+            background-position: left;
+            background-repeat: no-repeat;
+            background-size: cover;
+            text-align: left;
+            padding: 60px 0;
+        }
+
+        .test {
+            padding: 30px 100px;
+        }
+
+        article h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            text-align: left;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        article img {
+            max-width: 40%;
+            width: 300px;
+            height: 350px;
+            border-radius: 50%;
+            float: right;
+            margin-bottom: auto;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        blockquote {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.5rem;
+            margin-top: 30px;
+            text-align: left;
+            color: #555;
+        }
+
+        p {
+            text-align: left;
+            margin: 20px 0 30px;
+            font-size: 1.2rem;
+            line-height: 1.6;
+            font-weight: 400;
+            color: #555;
+        }
+
+        form {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .form-control {
+            padding: 10px;
+            width: 60%;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            font-size: 1rem;
+            color: #555;
+        }
+        .btn-primary {
+            background-color: #4285f4;
+            color: #fff;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .btn-primary:hover {
+            background-color: #356ac3;
+        }
+
+    </style>
+</head>
+<body>
+    
+    <div>
+        <div>
+            <header style="background-color: #4285f4; padding: 20px; display: flex; align-items: center; justify-content: space-between;">
+                <a href="/" style="text-decoration: none;"><h2 style="font-family: 'Poppins', sans-serif; font-weight: 700; color: #fff; font-size: 2rem;">Scrapeyano</h2></a>
+                <div style="display: flex; gap: 10px;">
+                   
+                </div>
+            </header> 
+        <div class="wrapper">
+            <div class="test">
+                <article>
+                    <h1>Google Map Scraper </h1>
+                    <img src="{% static 'images/Scrapeyano.png' %}" alt="Scrapeyano">
+                    <blockquote>
+                        <p>Unlock the potential of location data with our Google Map scraping services. Transforming maps into insights for your business needs. Navigate the digital terrain effortlessly with us.<br>
+                        with a P.G degree in Computer Application</p>
+                    </blockquote>
+                </article>
+            </div>
+            <div>
+                <div>
+                    <form action="{% url 'scrape_google_maps' %}" method="post">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <input type="text" name="search" class="form-control" id="Inputtextbox" placeholder="Enter keyword">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+</body>
+</html>
